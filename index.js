@@ -81,6 +81,14 @@ app.get(
   })
 );
 
+app.get("/logout", (res, req) =>{
+    req.logout((err) => {
+      if (err) console.log(err);
+      res.redirect("/");
+    });
+  }
+);
+
 app.post(
   "/login",
   passport.authenticate("local", {
